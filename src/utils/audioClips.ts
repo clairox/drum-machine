@@ -13,8 +13,6 @@ export type AudioClip = {
 	src: string;
 };
 
-const dir = '../assets/audio';
-
 export const audioClips: AudioClip[] = [
 	{ id: 'Heater-1', src: heater1 },
 	{ id: 'Heater-2', src: heater2 },
