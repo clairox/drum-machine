@@ -13,6 +13,7 @@ import React, {
 import { AudioClipLoader, ProgramItem } from '../utils/programConfig';
 import Button from './Button';
 import VolumeSlider from './VolumeSlider';
+import powerButtonGuideSrc from '../assets/images/power-button-text.png';
 
 const drumPadConfig = [
 	{ key: 'Q', altKey: 'Numpad7', color: 'red', volume: 100 },
@@ -30,8 +31,14 @@ const DrumMachine: FunctionComponent = () => {
 	const [isPowerOn, setIsPowerOn] = useState(false);
 	const [currentDrumPadName, setCurrentDrumPadName] = useState('');
 	const [dpConfig, setDpConfig] = useState(drumPadConfig);
+	const [powerButtonGuide, setPowerButtonGuide] = useState(
+		<div className="h-56 w-56 relative left-[40px]">
+			<img src={powerButtonGuideSrc} alt="Arrow pointing to power button" />
+		</div>
+	);
 
 	const _setIsPowerOn = (v: boolean) => {
+		setPowerButtonGuide(<></>);
 		setCurrentDrumPadName('');
 		setIsPowerOn(v);
 	};
@@ -89,11 +96,14 @@ const DrumMachine: FunctionComponent = () => {
 					</div>
 				</div>
 			</div>
-			<Button
-				content={<FontAwesomeIcon icon={faPowerOff} />}
-				isPowerOn={isPowerOn}
-				setIsPowerOn={_setIsPowerOn}
-			/>
+			<div>
+				<Button
+					content={<FontAwesomeIcon icon={faPowerOff} />}
+					isPowerOn={isPowerOn}
+					setIsPowerOn={_setIsPowerOn}
+				/>
+				{powerButtonGuide}
+			</div>
 		</div>
 	);
 };
