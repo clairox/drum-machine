@@ -59,7 +59,7 @@ const DrumMachine: FunctionComponent = () => {
 	const program: MutableRefObject<ProgramItem[]> = useRef(new AudioClipLoader().getProgram());
 
 	return (
-		<div id="drum-machine" className="bg-neutral-900 rounded-2xl gap-8 h-[400px]">
+		<div id="drum-machine" className="bg-neutral-900 rounded-2xl gap-8 h-[400px] min-w-[816px]">
 			<div className="relative bottom-[40px] flex bg-neutral-800 p-10 rounded-2xl gap-8">
 				<div id="drum-pad-container" className="grid grid-cols-3 gap-4">
 					{dpConfig.map((item, idx) => {
